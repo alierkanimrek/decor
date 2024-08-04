@@ -67,7 +67,7 @@ $.p()(before:"Here is example;<br>", after: "some content", c:[ $.pre()(...) ]);
 
 You're already used to this.
 
-> $.forEach(data, (element) { return $...; });
+> $.forEach(data, (element) { return $()(); });
 
 ```dart
 DecorHTML content(){
