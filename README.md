@@ -23,18 +23,18 @@ It is very easy to define and change the structure.
 > $(...)(**c**:\[...\]);
 
 ```dart
-$.section("hero is-primary")(c:\[
-  $.div("hero-body")(c:\[
-    $.div("columns")(c:\[
-      $.div("column is-12")(c:\[
-        $.div("container content")(c:\[
+$.section("hero is-primary")(c:[
+  $.div("hero-body")(c:[
+    $.div("columns")(c:[
+      $.div("column is-12")(c:[
+        $.div("container content")(c:[
           $.h1("title")(before: title),
           $.h3("subtitle")(before: desc),
-        \])
-      \])
-    \])
-  \])
-\]);
+        ])
+      ])
+    ])
+  ])
+]);
 ```
 
 #### Attributes
@@ -54,7 +54,7 @@ You can place content before or after children.
 > $(...)(**before**:"before text", **after**:"after text", c:\[...\]);
 
 ```dart
-$.p()(before:"Here is example;<br>", after: "some content", c:\[ $.pre()(...) \]);
+$.p()(before:"Here is example;<br>", after: "some content", c:[ $.pre()(...) ]);
 
 // output: 
 // <p>Here is example; 
@@ -71,12 +71,12 @@ You're already used to this.
 
 ```dart
 DecorHTML content(){
-    return $.div("content is-medium")(c:\[
+    return $.div("content is-medium")(c:[
       $.h3("title is-3")(before: "Features"),
-        $.forEach(data, (element) {
-          return box(element);
-        })
-    \]);
+      $.forEach(data, (element) {
+        return box(element);
+      })
+    ]);
   }
 
 DecorHTML box(ContentData topic){ return $...; }
@@ -96,11 +96,11 @@ class Base{
   Decor $ = Decor();
 
   DecorHTML build( String title, String desc, List<DecorHTML> content ){
-    return $.html(c:\[
+    return $.html(c:[
       head(title, desc),
       $.body()(c: content ), 
       footer()
-      \]);
+      ]);
   }
 
   DecorHTML head( String title, String desc){ return $...; }
@@ -118,15 +118,15 @@ class MainPage extends Base{
   DecorHTML mainStyle = Decor().style(""" .... """);
       
   DecorHTML call(){
-    return build(title, desc, \[
+    return build(title, desc, [
       mainStyle,
       hero(),
-      $.section("section")(c:\[
-        $.div("container")(c:\[
+      $.section("section")(c:[
+        $.div("container")(c:[
           content()
-        \])
-      \])
-    \]);
+        ])
+      ])
+    ]);
   }
   
   DecorHTML hero(){ return $...; }
@@ -146,7 +146,7 @@ void main() async {
 
 Serving your design is that easy.
 
-> typedef DecorHTML = List<String>;
+> typedef DecorHTML = List\<String\>;
 
 ```dart
 class MainPage extends Base{
@@ -166,7 +166,7 @@ void main() async {
   
   MainPage index = MainPage();
 
-  // shelf\_router  
+  // shelf_router  
   final router = Router()
       ..get('/', index.handler)
   ...  
